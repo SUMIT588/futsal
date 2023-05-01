@@ -1,7 +1,6 @@
-import React from 'react';
+import { CustomRoute } from './route/index';
 import { GlobalStyle } from './common/style/globalStyle';
-
-import { CustomRoute } from './pages/route';
+import React from 'react';
 
 const App = () => {
 
