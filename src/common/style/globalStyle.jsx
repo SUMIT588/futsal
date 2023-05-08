@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    
   }
 
   :root{
@@ -23,6 +23,6 @@ body {
   }
   
 
-`
+`;
 
 // create a input tag that shows email validation

@@ -29,7 +29,7 @@ input{
 
   input::placeholder {
     font-size: 12px;
-    padding:5px;
+   padding: 5px;
 
   }
 

@@ -1,23 +1,23 @@
 import { React, useState } from "react";
 
 import Button from "../../../../components/button/button";
-import InputField from "../../../../components/input-field/inputField";
+import InputField from '../../../../components/input-field/inputField';
 import { Link } from "react-router-dom";
+import Loading from "../../../../components/loading/loading";
 import { LoginWrapper } from "./loginStyle";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import userLogin from "../hooks/userLogin";
+import userLogin from '../hooks/userLogin'
 
-// import Loading from "../../../../components/loading/loading";
+export const OwnerLogin = () => {
 
-export const Login = () => {
-  const { onLogin, setLogin, login } = userLogin();
-  const dispatch = useDispatch();
+  const { onLogin,setLogin, login,  } = userLogin();
+  
 
   return (
     <LoginWrapper>
       <div className="box">
-        <h2>User Login</h2>
+        <h2>Manager Login</h2>
 
         <form onSubmit={onLogin}>
           <InputField
@@ -49,12 +49,11 @@ export const Login = () => {
 
         <p>If don't have account!</p>
 
-        <Link to="/userRegister">Sign up</Link>
-
-        <div>
-          <Link to="/ownerLogin">Manager Sign In</Link>
-        </div>
+        <Link to="/ownerRegister">Sign up</Link>
       </div>
     </LoginWrapper>
   );
+
+
+
 };

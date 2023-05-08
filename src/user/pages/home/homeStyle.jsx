@@ -4,7 +4,7 @@ export const HomeWrapper = styled.div`
 
 
 display:flex;
-font-family:Merriweather;
+font-family:Montserrat;
 
 
 a{
@@ -22,11 +22,12 @@ h1 {
   font-size: 36px;
   margin-bottom: 20px;
   color:var(--secondary500);
+  font-family: Bruno Ace SC;
   
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 40px;
 }
 
@@ -42,17 +43,18 @@ p {
 .card-title {
   font-size: 24px;
   margin-bottom: 10px;
-  color: var(--secondary500)
+  color: var(--secondary500);
+
 }
 
 .card-text {
-  font-size: 18px;
+  font-size: 14px;
   margin-bottom: 20px;
 }
 
 .btn {
   display: inline-block;
-  background-color: var(--tertiary500);
+  background-color: var(--primary500);
   color: #fff;
   font-size: 18px;
   padding: 10px 20px;

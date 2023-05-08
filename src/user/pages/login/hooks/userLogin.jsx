@@ -1,33 +1,56 @@
-import { Login } from "../view";
+import { useEffect, useState } from "react";
+
+import { loginUser } from "../../../../store/slice/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-const userLogin = () =>{
+// import { changingLoadingStatus } from "../../../../store/slice/loadingSlice";
+// import { useDispatch } from "react-redux";
+// import { useLoginUserMutation } from "../../../../store/service/authentication";
 
-const {login} = Login();    
+const userLogin = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-const navigate = useNavigate();
+  const [isUserLogin, setUserLogin] = useState(false);
 
-const dispatch = useDispatch();
+  const [login, setLogin] = useState({
+    email: "",
+    password: "",
+  });
 
-const [loginRequest, loginResponse] = useLoginMutation();
+  // useEffect(() => {
 
-const onLogin = (e) => {
+  //   if(loginResponse?.isLoading){
+  //     dispatch(changingLoadingStatus(true))
+  //   }
+  //   if(loginResponse?.isError){
+  //     dispatch(changingLoadingStatus(false))
 
+  //   }
+  // }, [loginResponse]);
+
+  const onLogin = async(e) => {
     e.preventDefault();
 
-    loginRequest(login);
-
-    
-
-    
+    if (!login.email || !login.password) {
+      alert("All field required");
+    } else {
+   
+    const res =  await dispatch(loginUser(login)).unwrap();
+    if(res){
+      navigate('/home');
+    }
+  }
 }
 
-return {
-    onLogin, 
-}
 
-
-}
+  return {
+    onLogin,
+    login,
+    setLogin,
+    isUserLogin,
+  };
+};
 
 export default userLogin;
