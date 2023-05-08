@@ -2,10 +2,15 @@ import {AiFillDelete, AiFillEdit} from 'react-icons/ai'
 import React, { useState } from "react";
 
 import { AddTableWrapper } from "./addTableStyle";
+import { useEffect } from 'react';
+
+// import { useAddBookingMutation } from '../../../store/service/booking';
+
 
 export const AddTable = (props) => {
 
 
+  // const [addBookingRequest, addBookingResponse] = useAddBookingMutation();
   
   const [data, setData] = useState([]);
 
@@ -15,37 +20,34 @@ export const AddTable = (props) => {
 
   const [column1Value, setColumn1Value] = useState("");
   const [column2Value, setColumn2Value] = useState("");
-  // const [column3Value, setColumn3Value] = useState("");
+  
 
   const handleColumn1InputChange = (event) => {
-    setColumn1Value(event.target.value);
+    setColumn1Value(...column1Value,event.target.value);
   };
 
   const handleColumn2InputChange = (event) => {
-    setColumn2Value(event.target.value);
+    setColumn2Value(...column2Value, event.target.value);
   };
 
-  // const handleColumn3InputChange = (event) => {
-  //   setColumn3Value(event.target.value);
-  // };
-  
+  useEffect(()=>{
+ console.log(addBookingResponse)   
+  },[addBookingResponse])
+
+ 
 
 // for adding new value to table
 
   const handleAddRow = () => {
-
-
+    console.log('here')
     if (column1Value.trim() === "" || column2Value.trim() === "" ) {
       alert('all field required')
       return; 
-    }
-
-    
+    }    
     
     const newRow = {
       column1: column1Value,
-      column2: column2Value,
-      
+      column2: column2Value,      
     };
 
     if (editingRow !== null) {
@@ -59,9 +61,17 @@ export const AddTable = (props) => {
       setData([...data, newRow]);
     }
 
+    // if(addBookingResponse?.isSuccess){      
+    //   const startTimes = column1Value;      
+    //   const endTimes = column2Value;
+    //   const dates = props.date      
+    //   const tableData = [startTimes, endTimes, dates]
+    //   addBookingRequest(tableData);      
+    //    }
+    //    console.log(addBookingResponse);
+
     setColumn1Value("");
-    setColumn2Value("");
-    // setColumn3Value("");
+    setColumn2Value("");    
   };
 
   // for editing table data
@@ -84,6 +94,7 @@ export const AddTable = (props) => {
     }
   };
 
+  
   return (
     <AddTableWrapper>
       <table>

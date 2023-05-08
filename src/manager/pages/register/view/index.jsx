@@ -27,12 +27,12 @@ console.log({register})
 
 <form className = 'box' onSubmit = {handleSubmit}>
 
-    <h2>Register</h2>
+    <h2> Manager Register</h2>
 
       <InputField
         icon="username"
         placeholder="Enter name"
-        name='username'
+        name='userName'
         type="text"
         value={register.userName}
         onChange={handleChange}

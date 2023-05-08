@@ -1,27 +1,51 @@
 import styled from 'styled-components';
 
 export const LoginWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
 
-display : flex;
-flex-direction:column;
-justify-content: center;
-height:100vh;
-align-items:center;
-
-.box{
-    
+  .box {
     border-radius: 15px;
     box-sizing: border-box;
     border: 0.5px solid #ccc;
     box-shadow: 2px 2px 2px rgba(0.1, 0.1, 0.1, 0.1);
-    padding: 10px 40px;
-}
+    padding: 40px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-h2{
-    text-align:center;
-    color:var(--background);
-}
+  input {
+  }
+  
+  a {
+    // color: var(--tertiary500);
+    // text-decoration: none;
+    margin-bottom: 10px;
+  }
 
+  a: hover{
+    color:red;
+  }
+
+  p {
+    color: var(--grey500);
+  }
+
+  h2 {
+    text-align: center;
+    color: var(--background);
+  }
+
+  .loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
 `;
 
 

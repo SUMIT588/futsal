@@ -4,7 +4,7 @@ export const AddTableWrapper = styled.div`
 
 
 padding: 40px;
-width: 100%;
+width: 80%;
 
 input{
     border-radius: 5px;
@@ -44,15 +44,21 @@ table {
     td {
       text-align: center;
       color : var(--grey500);
-    }
-  
-     td{
       border: 1px solid #ddd;
       padding: 10px;
     }
-    
+  
+   
     th{
         padding: 10px;
+      
+    }
+    th:first-child{
+      border-top-left-radius: 10px;
+    }
+
+    th:last-child{
+      border-top-right-radius: 10px;
     }
 
    

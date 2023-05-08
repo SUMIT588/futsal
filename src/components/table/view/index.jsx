@@ -1,53 +1,41 @@
-import { TableWrapper } from "../tableStyle"
+import Button from "../../button/button";
+import KhaltiCheckout from "khalti-checkout-web";
+import { TableWrapper } from "../tableStyle";
 
 export const Table = (props) => {
+  return (
+    <TableWrapper>
+      <table>
+        <caption>Booking Time : {props.date}</caption>
+        <thead>
+          <tr>
+            <th> Start Time </th>
+            <th>End Time</th>
+            <th>Date</th>
+            <th>Book</th>
+          </tr>
+        </thead>
 
-return (
-
-<TableWrapper >
-
-
-<table>
-    
-<caption>Booking Time : {props.date}</caption>    
-<thead>
-
-    <tr>
-        <th>SN</th>
-        <th>Booking Time </th>
-        <th>Booking status</th>
-        <th>Book</th>
-
-    </tr>
-</thead>
-
-<tbody>
-
- <tr>
-    <td>1</td> 
-    <td>9:00 am</td> 
-    <td>Available</td> 
-
-
- </tr>
- 
- <tr>
-    <td>2</td>
-    <td>10 : 00 am</td>
-    <td>Not Available</td> 
-
-
- </tr>
-
-
-    
-</tbody>
-    
-</table>
-
-</TableWrapper>
-
-)
-
-    
-}
+        <tbody>
+          <tr>
+            <td>
+              <input type="time" />
+            </td>
+            <td>
+              <input type="time" />
+            </td>
+            <td>
+              <input value={props.date} />
+            </td>
+            <td>
+              <Button
+                name="Book"
+                onClick={() => checkout.show({ amount: 100000 })}
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </TableWrapper>
+  );
+};

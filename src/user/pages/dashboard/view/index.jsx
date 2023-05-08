@@ -1,6 +1,9 @@
 import { DashboardWrapper, Wrapper } from "./dashboardStyle"
 import { Link, Outlet, useLocation } from "react-router-dom"
 
+import { Header } from "../../../../components/header";
+import futsalLogo2 from '../../../../common/img/futsalLogo2.png'
+
 export const Dashboard = () =>{
     const location = useLocation();
 
@@ -31,6 +34,10 @@ return(
     <Wrapper>
     <DashboardWrapper>
 
+        <div className = 'logoContainer'>
+            <img className = 'logo' src = {futsalLogo2} alt = 'logo' />
+        </div>
+
    <ul>
     {list.map((item, index) => {
         return (
@@ -47,9 +54,11 @@ return(
     })}
    </ul>
     </DashboardWrapper>
-
+<div className = 'dashboard'>
+    <Header />
     <Outlet/>
     
+</div>
     </Wrapper>
 )
 

@@ -9,15 +9,19 @@ cursor: pointer;
 display:flex;
 justify-content:center;
 
+
+
 button{
     padding: 10px 20px;
     border:none;
     color:white;
     border-radius:5px;
     background-color: var(--background);
-    margin-bottom:25px;
+    // margin-bottom:25px;
     
 }
+
+
 
 button:hover {
     background-color: var(--hover);

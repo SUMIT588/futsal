@@ -7,12 +7,27 @@ export const DashboardWrapper = styled.div`
     height: 100vh;
     background-color: var(--bg-color);
     overflow-x: hidden;
-    display:fixed;
+    position:sticky;
     left:0px;
     top : 0px;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
     
+  img{
+    width: 50%;
+  }
   
+  .logo{
+    background-size: cover;
+    height: 80px;
+  }
+
+  .logoContainer{
+    display:flex;
+    padding-left: 25px;
+    height: 83px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+
+  }
 
   ul {
     list-style-type: none;
@@ -56,8 +71,11 @@ export const Wrapper = styled.div`
 display:flex;
 width: 100%;
 
-.dashboard-content {
+
+
+.dashboard {
   width: 100%;
+  overflow:hidden;
 }
 
 `
