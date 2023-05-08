@@ -10,7 +10,7 @@ const AppRoutes = () => {
 
   return (
     <BrowserRouter>
-     <PublicRoutes />
+      <PublicRoutes />
       {auth && auth.roleCode === '001' && <UserRoutes />}
       {auth && auth.roleCode === '222' && <OwnerRoutes />}
     </BrowserRouter>
