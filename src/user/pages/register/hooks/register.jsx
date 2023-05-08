@@ -36,7 +36,8 @@ export const RegisterHook = () => {
     } else {
       const res = await dispatch(registerUser(register)).unwrap();
       if(res){
-        navigate('/userRegister');
+        navigate('/');
+        console.log(res,'hello')
       }
     }
   };

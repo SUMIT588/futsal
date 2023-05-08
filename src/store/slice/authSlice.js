@@ -86,15 +86,15 @@ const authSlice = createSlice({
       .addCase(registerUser.pending, (state, _action) => {
         state.isFetching = true;
       })
-      .addCase(registerUser.fulfilled, (state, action) => {
+      .addCase(registerUser.fulfilled, (state, _action) => {
         state.isFetching = false;
-        state.user = action.payload;
+        state.user = _action.payload;
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.isFetching = false;
         state.error = true;
-        console.log('hello', action.error)
-        alert(action.error.message);
+        // console.log('hello', action.error)
+        // alert(action.error.message);
       });
   },
 });

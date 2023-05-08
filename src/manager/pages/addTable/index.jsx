@@ -1,17 +1,9 @@
-import {AiFillDelete, AiFillEdit} from 'react-icons/ai'
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import React, { useState } from "react";
 
 import { AddTableWrapper } from "./addTableStyle";
-import { useEffect } from 'react';
-
-// import { useAddBookingMutation } from '../../../store/service/booking';
-
 
 export const AddTable = (props) => {
-
-
-  // const [addBookingRequest, addBookingResponse] = useAddBookingMutation();
-  
   const [data, setData] = useState([]);
 
   const [editingRow, setEditingRow] = useState(null);
@@ -20,58 +12,38 @@ export const AddTable = (props) => {
 
   const [column1Value, setColumn1Value] = useState("");
   const [column2Value, setColumn2Value] = useState("");
-  
 
   const handleColumn1InputChange = (event) => {
-    setColumn1Value(...column1Value,event.target.value);
+    setColumn1Value(...column1Value, event.target.value);
   };
 
   const handleColumn2InputChange = (event) => {
     setColumn2Value(...column2Value, event.target.value);
   };
 
-  useEffect(()=>{
- console.log(addBookingResponse)   
-  },[addBookingResponse])
-
- 
-
-// for adding new value to table
+  // for adding new value to table
 
   const handleAddRow = () => {
-    console.log('here')
-    if (column1Value.trim() === "" || column2Value.trim() === "" ) {
-      alert('all field required')
-      return; 
-    }    
-    
+    console.log("here");
+    if (column1Value.trim() === "" || column2Value.trim() === "") {
+      alert("all field required");
+      return;
+    }
+
     const newRow = {
       column1: column1Value,
-      column2: column2Value,      
+      column2: column2Value,
     };
 
     if (editingRow !== null) {
-      setData(
-        data.map((row, index) =>
-          index === editingRow ? newRow : row
-        )
-      );
+      setData(data.map((row, index) => (index === editingRow ? newRow : row)));
       setEditingRow(null);
     } else {
       setData([...data, newRow]);
     }
 
-    // if(addBookingResponse?.isSuccess){      
-    //   const startTimes = column1Value;      
-    //   const endTimes = column2Value;
-    //   const dates = props.date      
-    //   const tableData = [startTimes, endTimes, dates]
-    //   addBookingRequest(tableData);      
-    //    }
-    //    console.log(addBookingResponse);
-
     setColumn1Value("");
-    setColumn2Value("");    
+    setColumn2Value("");
   };
 
   // for editing table data
@@ -83,18 +55,18 @@ export const AddTable = (props) => {
     alert(`Editing row ${index}`);
   };
 
-
-  // for deleting table data 
+  // for deleting table data
 
   const handleDeleteRow = (index) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this row?");
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this row?"
+    );
     if (confirmDelete) {
       setData(data.filter((_, i) => i !== index));
       setDeletingIndex(null);
     }
   };
 
-  
   return (
     <AddTableWrapper>
       <table>
@@ -113,8 +85,21 @@ export const AddTable = (props) => {
               <td>{row.column1}</td>
               <td>{row.column2}</td>
               <td>{props.date}</td>
-             <td> <button className = "edit" onClick={() => handleEditRow(index)}><AiFillEdit /></button> </td>
-             <td> <button className="delete" onClick={() => handleDeleteRow(index)}><AiFillDelete /></button></td>
+              <td>
+                {" "}
+                <button className="edit" onClick={() => handleEditRow(index)}>
+                  <AiFillEdit />
+                </button>{" "}
+              </td>
+              <td>
+                {" "}
+                <button
+                  className="delete"
+                  onClick={() => handleDeleteRow(index)}
+                >
+                  <AiFillDelete />
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -139,12 +124,7 @@ export const AddTable = (props) => {
               />
             </td>
             <td>
-              <input
-                type="text"
-                value={props.date}
-                readOnly
-               
-              />
+              <input type="text" value={props.date} readOnly />
             </td>
 
             <td>

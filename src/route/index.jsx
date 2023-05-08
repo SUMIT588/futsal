@@ -6,10 +6,11 @@ import { useSelector } from "react-redux";
 
 const AppRoutes = () => {
   const auth = useSelector((state) => state.authSlice.user);
+  console.log(auth, 'auth')
 
   return (
     <BrowserRouter>
-      {!auth && <PublicRoutes />}
+     <PublicRoutes />
       {auth && auth.roleCode === '001' && <UserRoutes />}
       {auth && auth.roleCode === '222' && <OwnerRoutes />}
     </BrowserRouter>
