@@ -69,7 +69,7 @@ const noticeSlice = createSlice({
       })
       .addCase(getManagerNotice.fulfilled, (state, action) => {
         state.isFetching = false;
-        // state.noticeData = action;
+        state.noticeData = action.payload.notices;
         state.message = action.payload.message;
       })
       .addCase(getManagerNotice.rejected, (state, action) => {
