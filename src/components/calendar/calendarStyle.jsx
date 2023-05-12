@@ -27,7 +27,7 @@ width: 80%;
     box-shadow:  0px -1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 0.5px 0.5px rgba(0, 0, 0, 0.19);
     width: 100%;
     border-radius: 10px;
-    padding-bottom : 40px;
+    padding-bottom : 5px;
 }
 
 .react-calendar__month-view__weekdays abbr[title]{

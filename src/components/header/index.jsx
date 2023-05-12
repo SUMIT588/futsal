@@ -17,6 +17,8 @@ export const Header = () =>{
 
 return (
   <HeaderWrapper>
+    <div className='box'>
+      
     <div className="profile">
       <div className="iconContainer">
         <FaUserAlt className="icon" />
@@ -28,6 +30,7 @@ return (
           <FiLogOut />
         </button>
       </div>
+    </div>
     </div>
   </HeaderWrapper>
 );

@@ -22,6 +22,8 @@ const LoadingWrapper = styled.div`
 
 function Loading() {
   const { isFetching } = useSelector((state) => state.authSlice);
+
+  console.log(isFetching);
   if(isFetching){
     
     return (

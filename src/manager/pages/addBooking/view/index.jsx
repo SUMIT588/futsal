@@ -1,35 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { AddBookingWrapper } from './addBookingStyle';
-import { AddTable } from '../../addTable';
-import { CustomCalendar } from '../../../../components/calendar/view';
+import { AddBookingWrapper } from "./addBookingStyle";
+import { AddTable } from "../../addTable";
+import { CustomCalendar } from "../../../../components/calendar/view";
+import { changeDate } from "../../../../store/slice/calendarSlice";
+import { useDispatch } from "react-redux";
 
-export const AddBooking = () =>{
+export const AddBooking = () => {
+  const dispatch = useDispatch();
 
-    const [value, onChange] = useState(new Date());
+  const onChange = (e) => {
+    const date = new Date(e.toString());
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
 
+    const formattedDate = `${year}-${month}-${day}`;
 
+    dispatch(changeDate(formattedDate));
+    console.log(formattedDate, "hi");
+  };
 
-const dateString = value.toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
+  return (
+    <AddBookingWrapper>
+      <CustomCalendar onChange={onChange} />
 
-  console.log(dateString)
-  
-
-    return (
-        
-<AddBookingWrapper>
-
-<CustomCalendar onChange = {onChange} value = {value} />
-
-<AddTable date = {dateString} />
-
-</AddBookingWrapper>
-
-
-    )
-    
-}
+      <AddTable  />
+    </AddBookingWrapper>
+  );
+};

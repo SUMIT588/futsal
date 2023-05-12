@@ -1,60 +1,76 @@
-import { DashboardWrapper, Wrapper } from "./dashboardStyle"
-import { Link, Outlet, useLocation } from "react-router-dom"
+import { DashboardWrapper, Wrapper } from "./dashboardStyle";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
+import { FcManager } from "react-icons/fc";
+import { GrAnnounce } from "react-icons/gr";
 import { Header } from "../../../../components/header";
-import futsalLogo2 from '../../../../common/img/futsalLogo2.png'
+import { IoIosNotifications } from "react-icons/io";
+import { TbBrandBooking } from "react-icons/tb";
+import futsalLogo2 from "../../../../common/img/futsalLogo2.png";
 
-export const ManagerDashboard = () =>{
-    const location = useLocation();
+export const ManagerDashboard = () => {
+  const location = useLocation();
 
-const list = [
+  const list = [
     {
-        title : 'Add Booking' ,
-        link : '/addBooking',
-        icon : '', 
+      title: "Add Booking",
+      link: "/addBooking",
+      icon: <TbBrandBooking />,
     },
-{
-        title : 'Customer Management' ,
-        link : '/customerManagement',
-        icon : '',
-       
+    {
+      title: "Customer Management",
+      link: "/customerManagement",
+      icon: <FcManager />,
     },
-    
-        
-]
 
-return(
+    {
+      title: "Add Notice",
+      link: "/addNotice",
+      icon: <IoIosNotifications />,
+    },
+  ];
+
+  return (
     <Wrapper>
-    <DashboardWrapper>
-
-    <div className = 'logoContainer'>
-            <img className = 'logo' src = {futsalLogo2} alt = 'logo' />
+      <DashboardWrapper>
+        <div className="logoContainer">
+          <img className="logo" src={futsalLogo2} alt="logo" />
         </div>
 
+        <ul>
+          {list.map((item, index) => {
+            return (
+              <Link to={item.link} key={index}>
+                <li
+                  className={
+                    location?.pathname === item.link ? "active" : "non-active"
+                  }
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                    }}
+                  >
+                    <div
+                      style={{
+                        marginRight: "10px",
+                      }}
+                    >
+                      {item.icon}
+                    </div>
+                    <div>{item.title} </div>
+                  </div>
+                </li>
+              </Link>
+            );
+          })}
+        </ul>
+      </DashboardWrapper>
+      <div className="dashboard">
+        <Header />
 
-   <ul>
-    {list.map((item, index) => {
-        return (
-            
-            <Link to = {item.link} key = {index} >
-
-            <li className={location?.pathname=== item.link ? "active":"non-active"}  >
-               <div>{item.icon}</div>
-               <div>{item.title} </div>
-                 
-            </li>
-            </Link>
-        )
-    })}
-   </ul>
-    </DashboardWrapper>
-<div className = 'dashboard'>
-    <Header />
-
-    <Outlet/>
-    
-</div>
+        <Outlet />
+      </div>
     </Wrapper>
-)
-
-}
+  );
+};

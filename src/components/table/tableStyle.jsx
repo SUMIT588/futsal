@@ -58,9 +58,9 @@ export const TableWrapper = styled.div`
     width: 100%;
     background-color: var(--primary500);
     color: white;
-    height: 50px;
+    height: 40px;
     text-align: center;
-    line-height: 50px;
+    line-height: 40px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   }

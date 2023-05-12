@@ -1,8 +1,32 @@
 import Button from "../../button/button";
 import KhaltiCheckout from "khalti-checkout-web";
 import { TableWrapper } from "../tableStyle";
+import config from "../../khalti/khaltiConfig";
+import { useState } from "react";
 
 export const Table = (props) => {
+  const checkout = new KhaltiCheckout(config);
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+
+  const handleStartTimeChange = (event) => {
+    setStartTime(event.target.value);
+  };
+
+  const handleEndTimeChange = (event) => {
+    setEndTime(event.target.value);
+    
+  };
+
+
+  const handleClick = () =>{
+    const bookingData = [startTime, endTime, props.date]
+
+    console.log(bookingData, 'hey')
+    checkout.show({ amount: 100000 });
+  }
+  
+
   return (
     <TableWrapper>
       <table>
@@ -19,10 +43,18 @@ export const Table = (props) => {
         <tbody>
           <tr>
             <td>
-              <input type="time" />
+              <input
+                type="time"
+                value={startTime}
+                onChange={handleStartTimeChange}
+              />
             </td>
             <td>
-              <input type="time" />
+              <input
+                type="time"
+                value={endTime}
+                onChange={handleEndTimeChange}
+              />
             </td>
             <td>
               <input value={props.date} />
@@ -30,7 +62,7 @@ export const Table = (props) => {
             <td>
               <Button
                 name="Book"
-                onClick={() => checkout.show({ amount: 100000 })}
+                onClick={handleClick}
               />
             </td>
           </tr>

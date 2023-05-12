@@ -1,13 +1,16 @@
 import styled from 'styled-components'
 
 export const HeaderWrapper = styled.div`
+position: sticky;
+top: 0;
   height: 83px;
   width: 100%;
   background-color: var(--bg-color);
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
 
+
+
+  
   .profile {
     display: flex;
 

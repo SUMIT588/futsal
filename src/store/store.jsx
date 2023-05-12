@@ -9,8 +9,12 @@ import {
   persistStore,
 } from "redux-persist";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import noticeSlice, { getUserNotice } from "./slice/noticeSlice";
 
 import authReducer from "./slice/authSlice";
+import bookingSlice from "./slice/bookingSlice";
+import calendarSlice from "./slice/calendarSlice";
+import customerBooking from "./slice/customerBooking";
 import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
@@ -21,6 +25,11 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   authSlice: authReducer,
+  bookingSlice: bookingSlice,
+  calendarSlice: calendarSlice,
+  customerBookingSlice: customerBooking,
+  noticeSlice: noticeSlice,
+ 
   // add slice here
 });
 

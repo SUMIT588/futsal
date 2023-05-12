@@ -63,9 +63,8 @@ const authSlice = createSlice({
       .addCase(loginOwner.rejected, (state, action) => {
         state.isFetching = false;
         state.error = true;
-        console.log(action.message.error);
-        
-        // alert(action.error);
+
+        // alert(action.message.error);
       })
 
       // Register Owner
@@ -94,7 +93,7 @@ const authSlice = createSlice({
         state.isFetching = false;
         state.error = true;
         // console.log('hello', action.error)
-        // alert(action.error.message);
+        alert(action.error.message);
       });
   },
 });

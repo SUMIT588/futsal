@@ -52,9 +52,7 @@ export const DashboardWrapper = styled.div`
 
       
       :hover{
-        color: white;
-        opacity: 0.7;
-        background-color: var(--primary500);
+        color: var(--background);
       } 
     }
   }
