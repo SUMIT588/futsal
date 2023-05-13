@@ -9,18 +9,12 @@ width: 80%;
 }
 
 
+.react-calendar, .react-calendar *, .react-calendar *:before, .react-calendar *:after {
 
-// .react-calendar__navigation{
-//    background-color: var(--primary500);
-//    color: white;
-//    border-top-right-radius: 10px;
-//    border-top-left-radius: 10px;
-// }
+}
 
-// .react-calendar__navigation__label__labelText {
-//     color:white;
-//     font-weight:200;
-// }
+
+
 
 .react-calendar{
     border: none;
@@ -40,4 +34,4 @@ width: 80%;
 }
 
 
-`
+`;

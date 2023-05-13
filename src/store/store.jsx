@@ -12,6 +12,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import noticeSlice, { getUserNotice } from "./slice/noticeSlice";
 
 import authReducer from "./slice/authSlice";
+import bookingHistorySlice from './slice/historySlice'
 import bookingSlice from "./slice/bookingSlice";
 import calendarSlice from "./slice/calendarSlice";
 import customerBooking from "./slice/customerBooking";
@@ -29,7 +30,8 @@ const rootReducer = combineReducers({
   calendarSlice: calendarSlice,
   customerBookingSlice: customerBooking,
   noticeSlice: noticeSlice,
- 
+  bookingHistorySlice: bookingHistorySlice,
+
   // add slice here
 });
 

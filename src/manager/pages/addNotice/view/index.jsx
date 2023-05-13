@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { addNotice, getManagerNotice } from "../../../../store/slice/noticeSlice";
+import {
+  addNotice,
+  deleteManagerNotice,
+  getManagerNotice,
+  getManagerNoticeId,
+  updateManagerNotice,
+} from "../../../../store/slice/noticeSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import AddNoticeWrapper from "./addNoticeStyled";
@@ -9,16 +15,18 @@ import { MdOutlineSystemUpdateAlt } from "react-icons/md";
 import { useEffect } from "react";
 
 const AddNotice = () => {
-  const {noticeData} = useSelector((state) => state.noticeSlice)
+  const { noticeData } = useSelector((state) => state.noticeSlice);
+  const { updateNotice } = useSelector((state) => state.noticeSlice);
+
+  const [isEdit, setIsEdit] = useState(false);
   const [title, setTitle] = useState("");
   const [notice, setNotice] = useState("");
 
   const dispatch = useDispatch();
 
-  useEffect(()=>{
-    dispatch(getManagerNotice())
-    console.log(noticeData, 'i am data')
-  },[])
+  useEffect(() => {
+    dispatch(getManagerNotice());
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,11 +38,22 @@ const AddNotice = () => {
       message: notice,
     };
 
-    console.log(noticeValue, "noticeValue");
+    const _id = updateNotice?._id;
 
-    const res = await dispatch(addNotice(noticeValue)).unwrap();
-    if (res) {
-      console.log(res, "response");
+    if (isEdit) {
+      const res = await dispatch(
+        updateManagerNotice({ _id, noticeValue })
+      ).unwrap();
+      if (res) {
+        dispatch(getManagerNotice());
+        setIsEdit(false);
+      }
+    } else {
+      const res = await dispatch(addNotice(noticeValue)).unwrap();
+      if (res) {
+        dispatch(getManagerNotice());
+        
+      }
     }
   };
 
@@ -46,26 +65,27 @@ const AddNotice = () => {
     setNotice(e.target.value);
   };
 
-  const handleAddCard = () => {
-    const newCard = {
-      title: "New Card Title",
-      message: "New Card Message",
-      date: "New Card Date",
-    };
-    setCards([...cards, newCard]);
+  const handleDeleteCard = async (e) => {
+    console.log(e.target.value, "delete");
+    const _id = e.target.value;
+    const res = await dispatch(deleteManagerNotice(_id)).unwrap();
+    if (res) {
+      dispatch(getManagerNotice());
+    }
   };
 
-  const handleDeleteCard = (index) => {
-    const updatedCards = [...cards];
-    updatedCards.splice(index, 1);
-    setCards(updatedCards);
-  };
+  const handleEditCard = (e) => {
+    setIsEdit(true);
+    console.log(e.target.value, "hello");
+    const id = e.target.value;
 
-  const handleUpdateCard = (index, updatedCard) => {
-    // Logic to update a card at the specified index
-    const updatedCards = [...cards];
-    updatedCards[index] = updatedCard;
-    setCards(updatedCards);
+    dispatch(getManagerNoticeId(id));
+    console.log(updateNotice);
+
+    console.log(updateNotice, "updatedNotice");
+
+    setTitle(updateNotice?.title);
+    setNotice(updateNotice?.message);
   };
 
   return (
@@ -93,22 +113,40 @@ const AddNotice = () => {
           cols="50"
         />
         <br />
-        <button type="submit">Submit</button>
+        <button type="submit">{isEdit ? "Resubmit" : "Submit"}</button>
       </form>
 
       <div className="cardBox">
-        <CardBox>
-          {/* Delete button */}
-          <button className="delete" onClick={handleDeleteCard}>
-            <AiFillDelete />
-          </button>
-          {/* Update button */}
-          <button className="update" onClick={handleUpdateCard}>
-            <MdOutlineSystemUpdateAlt />
-          </button>
-          {/* Add button */}
-          <button onClick={handleAddCard}>Add Card</button>
-        </CardBox>
+        {noticeData
+          ? noticeData.map((notice, index) => (
+              <CardBox
+                key={index}
+                title={notice.title}
+                message={notice.message}
+                date={notice.datePublished}
+              >
+                <div className="button">
+                  {/* Delete button */}
+                  <button
+                    value={notice?._id}
+                    className="delete"
+                    onClick={handleDeleteCard}
+                  >
+                    <AiFillDelete />
+                  </button>
+                  {/* Update button */}
+                  <button
+                    value={notice?._id}
+                    className="update"
+                    onClick={handleEditCard}
+                  >
+                    <MdOutlineSystemUpdateAlt />
+                  </button>
+                  {/* Add button */}
+                </div>
+              </CardBox>
+            ))
+          : ""}
       </div>
     </AddNoticeWrapper>
   );

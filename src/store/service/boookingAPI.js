@@ -9,11 +9,10 @@ const getBooking = async (date) => {
   }
 };
 
-const addBooking = async (credentials) => {
+const addBooking = async (bookingData) => {
   try {
-    const { data } = await api.post("/api/user/addBooking", credentials, {
-    
-    });
+    console.log(bookingData, 'jels')
+    const { data } = await api.post("/api/user/addBooking", bookingData);
     return data;
   } catch (err) {
     throw new Error(err.response.data.error);

@@ -50,12 +50,18 @@ export const Booking = () => {
       <CustomCalendar />
 
       <div className="notice">
-        <h2>Booking Opening Hour : </h2>
+        <div className="time">
+          <h2>
+            Booking Opening Hour : <span>7:00 am to 8:00 pm</span>
+          </h2>
+        </div>
         <p>Date : {date}</p>
 
         <div>
-          <div className = 'notBooked'>{!booking && <h4>All slot available </h4>}</div>
-          
+          <div className="notBooked">
+            {!booking && <h4>All slot available </h4>}
+          </div>
+
           {booking && (
             <table className="table">
               <caption>Already Booked Slot</caption>
@@ -63,7 +69,7 @@ export const Booking = () => {
                 <tr>
                   <th>Start Time</th>
                   <th>End Time</th>
-                  <th>Booked</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>

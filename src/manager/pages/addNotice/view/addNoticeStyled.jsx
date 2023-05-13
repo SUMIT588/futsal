@@ -5,6 +5,10 @@ const AddNoticeWrapper = styled.div`
   margin: 0 auto;
   padding: 20px;
 
+.button{
+  margin-top: 20px;
+}
+  
   h2 {
     font-size: 24px;
     margin-bottom: 10px;

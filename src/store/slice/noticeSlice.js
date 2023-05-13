@@ -4,6 +4,7 @@ import noticeService from "../service/noticeAPI";
 
 const initialState = {
   noticeData: [],
+  updateNotice:[],
   error: null,
   isFetching: null,
   message: null,
@@ -24,6 +25,22 @@ export const getManagerNotice = createAsyncThunk(
   async (credential) => noticeService.getManagerNotice(credential)
 );
 
+export const deleteManagerNotice = createAsyncThunk(
+  "api/manager/delete",
+  async (credential) => noticeService.deleteManagerNotice(credential)
+  
+);
+
+export const updateManagerNotice = createAsyncThunk(
+  "api/manager/updateNotice",
+  async (data) => noticeService.updateManagerNotice(data._id, data.noticeValue)
+);
+
+export const getManagerNoticeId = createAsyncThunk(
+  "api/managerNotice/id",
+  async (id) => noticeService.getManagerNoticeId(id)
+);
+
 
 
 const noticeSlice = createSlice({
@@ -39,12 +56,13 @@ const noticeSlice = createSlice({
       })
       .addCase(addNotice.fulfilled, (state, action) => {
         state.isFetching = false;
-
         state.message = action.payload.message;
+        alert(state.message);
       })
       .addCase(addNotice.rejected, (state, action) => {
         state.isFetching = false;
         state.error = action.error.message;
+        alert(state.error);
       })
 
       //for user get Notice
@@ -75,7 +93,55 @@ const noticeSlice = createSlice({
       .addCase(getManagerNotice.rejected, (state, action) => {
         state.isFetching = false;
         state.error = action.error.message;
+      })
+
+      //manager Delete
+      .addCase(deleteManagerNotice.pending, (state) => {
+        state.isFetching = true;
+        state.error = null;
+      })
+      .addCase(deleteManagerNotice.fulfilled, (state, _action) => {
+        state.isFetching = false;
+        state.message = _action.payload.message;
+        alert(state.message);
+      })
+      .addCase(deleteManagerNotice.rejected, (state, _action) => {
+        state.isFetching = false;
+        state.error = _action.error.message;
+      })
+
+      //manager update
+
+      .addCase(updateManagerNotice.pending, (state) => {
+        state.isFetching = true;
+        state.error = null;
+      })
+      .addCase(updateManagerNotice.fulfilled, (state, _action) => {
+        state.isFetching = false;
+        state.message = _action.payload.message;
+        alert(state.message);
+      })
+      .addCase(updateManagerNotice.rejected, (state, _action) => {
+        state.isFetching = false;
+        state.error = _action.error.message;
+        alert(state.error);
+      })
+      //get manager by id
+      .addCase(getManagerNoticeId.pending, (state) => {
+        state.isFetching = true;
+        state.error = null;
+      })
+      .addCase(getManagerNoticeId.fulfilled, (state, _action) => {
+        state.isFetching = false;
+        state.updateNotice = _action.payload.notice
+        state.message = _action.payload.message;
+      })
+      .addCase(getManagerNoticeId.rejected, (state, _action) => {
+        state.isFetching = false;
+        state.error = _action.error.message;
       });
+
+      
   },
 });
 

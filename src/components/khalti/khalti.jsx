@@ -24,7 +24,7 @@ const checkout = new KhaltiCheckout(config);
     <div className ='button'>
         
             
-            <button onClick ={ () => checkout.show({amount:100000})}  > Pay via Khalti  </button >     
+            <button onClick ={ () => checkout.show({amount:10000})}  > Pay via Khalti  </button >     
 </div>
 
     </div>

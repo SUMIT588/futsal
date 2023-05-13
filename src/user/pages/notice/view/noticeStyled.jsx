@@ -8,4 +8,9 @@ justify-content:space-between;
 align-items:center;
 padding: 30px;
 
+h2{
+    font-family:Bruno Ace SC;
+    color: var(--tertiary500);
+}
+
 `

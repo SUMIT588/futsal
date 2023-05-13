@@ -20,18 +20,30 @@ export const Dashboard = () => {
     {
       title: "Booking",
       link: "/booking",
-      icon: <TbBrandBooking/>,
+      icon: <TbBrandBooking />,
     },
     {
       title: "Payment",
       link: "/payment",
-      icon: <MdPayment/>,
+      icon: <MdPayment />,
     },
 
     {
       title: "Notice",
       link: "/notice",
-      icon: <IoIosNotifications/>,
+      icon: <IoIosNotifications />,
+    },
+
+    {
+      title: "Booking history",
+      link: "/bookingHistory",
+      icon: <IoIosNotifications />,
+    },
+
+    {
+      title: "Map",
+      link: "/map",
+      icon: <IoIosNotifications />,
     },
   ];
 

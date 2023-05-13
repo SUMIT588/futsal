@@ -64,7 +64,6 @@ const authSlice = createSlice({
         state.isFetching = false;
         state.error = true;
 
-        // alert(action.message.error);
       })
 
       // Register Owner

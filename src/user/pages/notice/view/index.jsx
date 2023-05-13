@@ -21,10 +21,11 @@ export const Notice = () =>{
 
     return(
         <NoticeWrapper>
+            <h2>Notice</h2>
             {noticeData ? noticeData?.map((notice, i) => (
                 <CardBox title = {notice.title} message = {notice.message} date = {notice.datePublished} />
 
-            )) : ''}
+            )) : 'Np notice' }
             
         </NoticeWrapper>
     )

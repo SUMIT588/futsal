@@ -8,7 +8,7 @@ export const TableWrapper = styled.div`
     border-radius: 5px;
     height: 30px;
     border: 1px solid var(--primary500);
-    text-align : center;
+    text-align: center;
     padding: 5px;
   }
 
@@ -39,7 +39,6 @@ export const TableWrapper = styled.div`
     color: var(--primary500);
     font-weight: bold;
     border: 1px solid black;
-    
   }
 
   td {
@@ -63,5 +62,20 @@ export const TableWrapper = styled.div`
     line-height: 40px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    background-color: var(--background);
+    // margin-bottom:25px;
+  }
+
+  button:hover {
+    background-color: var(--hover);
+    transition: background-color 0.3s ease;
   }
 `;

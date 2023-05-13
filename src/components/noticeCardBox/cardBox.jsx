@@ -3,9 +3,7 @@ import React from "react";
 
 const CardBox = (props) => {
   return (
-        <CardBoxWrapper>
-          <div className='box'> 
-            
+    <CardBoxWrapper>
       <div className="card-content">
         <h3 className="card-title">{props.title}</h3>
         <p className="card-message">{props.message}</p>
@@ -13,7 +11,6 @@ const CardBox = (props) => {
       </div>
 {props.children}
 
-          </div>
     </CardBoxWrapper>
   );
 };

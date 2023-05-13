@@ -24,13 +24,47 @@ const getManagerNotice = async () => {
     return data;
   } catch (err) {
     throw new Error(err.response.data.error);
+  }}
+
+  const deleteManagerNotice = async (_id) => {
+  try {
+    const { data } = await api.delete(`/api/manager/deleteNotice/${_id}` );
+    return data;
+  } catch (err) {
+    throw new Error(err.response.data.error);
   }
 };
+
+ const updateManagerNotice = async (id, notice) => {
+  console.log(id, 'id, notice')
+   try {
+     const { data } = await api.patch(`/api/manager/updateNotice/${id}`, notice);
+     
+     return data;
+   } catch (err) {
+     throw new Error(err.response.data.error);
+   }
+ };
+
+  const getManagerNoticeId = async (id) => {
+    try {
+      const { data } = await api.get(`/api/manager/getNotice/${id}`);
+      return data;
+    } catch (err) {
+      throw new Error(err.response.data.error);
+    }
+  };
+
+
+ 
 
 const noticeService = {
   addNotice,
   getUserNotice,
+  deleteManagerNotice,
   getManagerNotice,
+  updateManagerNotice,
+  getManagerNoticeId
 };
 
 export default noticeService;

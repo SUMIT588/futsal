@@ -7,7 +7,7 @@ return (
 <ButtonWrapper>
     
 
-<button onClick ={props.onClick} type={props.type}>{props.name}</button>
+<button type={props.type}>{props.name}</button>
     
     
 </ButtonWrapper>
