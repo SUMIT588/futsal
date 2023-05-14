@@ -13,7 +13,7 @@ export const ManagerDashboard = () => {
 
   const list = [
     {
-      title: "Add Booking",
+      title: "Close Booking",
       link: "/addBooking",
       icon: <TbBrandBooking />,
     },

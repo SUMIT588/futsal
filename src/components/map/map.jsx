@@ -45,7 +45,15 @@ function Map() {
             iconAnchor: [12, 41],
           })
         }
-      ></Marker>
+      >
+
+<Popup>
+ 
+ SR Futsal
+    
+</Popup>
+        
+      </Marker>
 
 
       
@@ -61,7 +69,7 @@ function Map() {
           }
         >
           <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
+           Current location
           </Popup>
         </Marker>
       )}

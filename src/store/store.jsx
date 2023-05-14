@@ -15,7 +15,9 @@ import authReducer from "./slice/authSlice";
 import bookingHistorySlice from './slice/historySlice'
 import bookingSlice from "./slice/bookingSlice";
 import calendarSlice from "./slice/calendarSlice";
+import closeBookingSlice from "./slice/closeBookingSlice";
 import customerBooking from "./slice/customerBooking";
+import getCloseBookingSlice from "./slice/getCloseBookingSlice";
 import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
@@ -31,7 +33,8 @@ const rootReducer = combineReducers({
   customerBookingSlice: customerBooking,
   noticeSlice: noticeSlice,
   bookingHistorySlice: bookingHistorySlice,
-
+ closeBookingSlice: closeBookingSlice,
+  getCloseBookingSlice: getCloseBookingSlice
   // add slice here
 });
 

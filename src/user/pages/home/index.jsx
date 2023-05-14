@@ -36,7 +36,7 @@ const Home = () => {
                   Manage your futsal court bookings and keep track of your
                   playing history.
                 </p>
-                <Link to="/bookings" className="btn btn-primary">
+                <Link to="/bookingHistory" className="btn btn-primary">
                   Manage Bookings
                 </Link>
               </div>

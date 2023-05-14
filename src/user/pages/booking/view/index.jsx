@@ -4,15 +4,20 @@ import { BookingWrapper } from "../bookingStyle";
 import { CustomCalendar } from "../../../../components/calendar/view";
 import { Table } from "../../../../components/table/view";
 import { getBooking } from "../../../../store/slice/bookingSlice.js";
+import {getCloseBooking} from '../../../../store/slice/getCloseBookingSlice'
 import { useEffect } from "react";
 
 export const Booking = () => {
   const { date } = useSelector((state) => state.calendarSlice);
+  const { closeData } = useSelector((state) => state.getCloseBookingSlice);
+  console.log(closeData, "colsebooking");
 
+ 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getBooking(date));
+    dispatch(getCloseBooking(date));
   }, [date]);
 
   const { booking } = useSelector((state) => state.bookingSlice);
@@ -41,7 +46,6 @@ export const Booking = () => {
     };
   });
 
-  console.log(formattedData, "formate");
 
   return (
     <BookingWrapper>
@@ -49,6 +53,10 @@ export const Booking = () => {
 
       <CustomCalendar />
 
+
+  {closeData ?  <p className= 'closeData'>{closeData}</p> : 
+
+  <>
       <div className="notice">
         <div className="time">
           <h2>
@@ -86,9 +94,13 @@ export const Booking = () => {
         </div>
       </div>
 
+
       <div className="tableBox">
         <Table date={date} />
+
       </div>
+      </>
+}
     </BookingWrapper>
   );
 };

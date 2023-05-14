@@ -6,6 +6,7 @@ margin-bottom : 10px;
 
 
 input{
+  background-color: transparent;
     width:100%;
     padding:10px;
     padding-left:20px;

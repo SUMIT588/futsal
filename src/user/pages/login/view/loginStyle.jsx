@@ -1,13 +1,27 @@
-import styled from 'styled-components';
+import background from '../../../../common/img/background.jpg'
+import styled from "styled-components";
 
 export const LoginWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
+  position: relative;
   height: 100vh;
   align-items: center;
+  background-image: url(${background});
+  background-size: cover;
+  background-position: center;
+
+  .container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   .box {
+    position:absolute;
+    top:10%;
+    right: 20%;
     border-radius: 15px;
     box-sizing: border-box;
     border: 0.5px solid #ccc;
@@ -16,19 +30,20 @@ export const LoginWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+  
   }
 
   input {
   }
-  
+
   a {
     // color: var(--tertiary500);
     // text-decoration: none;
     margin-bottom: 10px;
   }
 
-  a: hover{
-    color:red;
+  a: hover {
+    color: red;
   }
 
   p {
@@ -47,5 +62,3 @@ export const LoginWrapper = styled.div`
     z-index: 10;
   }
 `;
-
-

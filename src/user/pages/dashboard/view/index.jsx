@@ -1,7 +1,8 @@
+import { AiFillHome, AiOutlineHistory } from "react-icons/ai";
 import { DashboardWrapper, Wrapper } from "./dashboardStyle";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
-import { AiFillHome } from "react-icons/ai";
+import {FaMapMarkerAlt} from 'react-icons/fa';
 import { Header } from "../../../../components/header";
 import {IoIosNotifications} from 'react-icons/io'
 import {MdPayment} from 'react-icons/md'
@@ -37,13 +38,13 @@ export const Dashboard = () => {
     {
       title: "Booking history",
       link: "/bookingHistory",
-      icon: <IoIosNotifications />,
+      icon: <AiOutlineHistory />,
     },
 
     {
       title: "Map",
       link: "/map",
-      icon: <IoIosNotifications />,
+      icon: <FaMapMarkerAlt />,
     },
   ];
 

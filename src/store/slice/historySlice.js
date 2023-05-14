@@ -11,7 +11,7 @@ const initialState = {
 
 export const getBookingHistory = createAsyncThunk(
   "api/user/getBookingHistory",
-  async (date) => bookingHistory.getBookingHistory()
+  async (credential) => bookingHistory.getBookingHistory(credential)
 );
 
 const bookingHistorySlice = createSlice({
@@ -26,7 +26,7 @@ const bookingHistorySlice = createSlice({
       })
       .addCase(getBookingHistory.fulfilled, (state, action) => {
         state.isFetching = false;
-        state.bookingHistory = action.payload;
+        state.bookingHistory = action.payload.bookings;
         state.message = action.payload.message;
       })
       .addCase(getBookingHistory.rejected, (state, action) => {

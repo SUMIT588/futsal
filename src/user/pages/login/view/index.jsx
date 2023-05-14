@@ -4,11 +4,10 @@ import Button from "../../../../components/button/button";
 import InputField from "../../../../components/input-field/inputField";
 import { Link } from "react-router-dom";
 import { LoginWrapper } from "./loginStyle";
+import futsalLogin from '../../../../common/img/futsalLogin.jpg'
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import userLogin from "../hooks/userLogin";
-
-// import Loading from "../../../../components/loading/loading";
 
 export const Login = () => {
   const { onLogin, setLogin, login } = userLogin();
@@ -16,6 +15,10 @@ export const Login = () => {
 
   return (
     <LoginWrapper>
+     
+
+     <div className= 'containerForm'>
+      
       <div className="box">
         <h2>User Login</h2>
 
@@ -30,7 +33,7 @@ export const Login = () => {
             onChange={(e) =>
               setLogin({ ...login, [e.target.name]: e.target.value })
             }
-          />
+            />
 
           <InputField
             icon="password"
@@ -42,7 +45,7 @@ export const Login = () => {
             onChange={(e) =>
               setLogin({ ...login, [e.target.name]: e.target.value })
             }
-          />
+            />
 
           <Button name="Login" type="submit" />
         </form>
@@ -54,6 +57,7 @@ export const Login = () => {
         <div>
           <Link to="/ownerLogin">Manager Sign In</Link>
         </div>
+            </div>
       </div>
     </LoginWrapper>
   );

@@ -29,7 +29,11 @@ export const BookingWrapper = styled.div`
   font-family:Bruno Ace Sc;
  }
 
- 
+ .closeData{
+  color: var(--tertiary500);
+  font-size: 20px;
+  margin-top: 30px;
+ }
 
 
  span{
