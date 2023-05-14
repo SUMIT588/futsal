@@ -54,12 +54,13 @@ export const BookingWrapper = styled.div`
   }
 
   h4{
-   color: var(--grey500)
+   color: var(--grey500);
+   font-family: Bruno Ace SC;
   }
 
   h2{
-    color: var(--tertiary500);
-  font-family:Bruno Ace SC;
+    color: var(--grey500);
+  font-family: Bruno Ace SC;
 
   }
 

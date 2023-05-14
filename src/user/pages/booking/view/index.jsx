@@ -98,7 +98,7 @@ export const Booking = () => {
           <div className="notice">
             <div className="time">
               <h2>
-                Booking Opening Hour : <span>7:00 am to 8:00 pm</span>
+                BOOKING DURATION : <span>7:00 am to 8:00 pm</span>
               </h2>
             </div>
             <p>Date : {date}</p>
