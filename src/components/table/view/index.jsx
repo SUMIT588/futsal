@@ -48,7 +48,6 @@ export const Table = (props) => {
     date: props.date,
   };
 
-  console.log(bookingData, "booking DAta");
 
   return (
     <TableWrapper>
