@@ -92,7 +92,10 @@ export const Booking = () => {
       <CustomCalendar />
 
       {closeData || isLargeEqual? (
+        <div>
         <p className="closeData">{closeData}</p>
+        {isLargeEqual ? (<h2 style={{color: 'var(--tertiary500)'}}> Expiry Date</h2>):''}
+        </div>
       ) : (
         <>
           <div className="notice">
