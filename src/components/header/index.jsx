@@ -11,6 +11,7 @@ export const Header = () => {
   const auth = JSON.parse(name);
 
   const userName = auth.name;
+  const email = auth.email;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -26,7 +27,11 @@ export const Header = () => {
         <div className="profile">
           <div className="iconContainer">
             <FaUserAlt className="icon" />
-            <p>{userName}</p>
+            <div className="detail">
+              <p>
+                {userName} <span>{email}</span>
+              </p>
+            </div>
           </div>
           <div className="logout">
             <p>Log Out</p>

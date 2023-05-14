@@ -25,7 +25,7 @@ export const Notice = () =>{
             {noticeData ? noticeData?.map((notice, i) => (
                 <CardBox title = {notice.title} message = {notice.message} date = {notice.datePublished} />
 
-            )) : 'Np notice' }
+            )) : <p>No notice</p> }
             
         </NoticeWrapper>
     )

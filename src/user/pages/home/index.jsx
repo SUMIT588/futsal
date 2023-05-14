@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <HomeWrapper>
       <div className="firstContainer">
-        <h1>Welcome to Futsal App</h1>
+        <h1>Welcome to SR FUTSAL</h1>
         <p>We offer the best futsal experience in town.</p>
 
         <div className="row">

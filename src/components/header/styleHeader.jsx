@@ -39,6 +39,8 @@ top: 0;
     right: 5%;
   }
 
+  
+
   .icon {
     border-radius: 50%;
     background-color: white;
@@ -50,9 +52,17 @@ top: 0;
     margin-left: 10px;
     margin-top: 10px;
     color: var(--grey500);
+    display:flex;
+    flex-direction: column;
+  }
+
+  span{
+    font-family: none;
+    
   }
 
   .iconContainer {
+    
     display: flex;
     position: absolute;
     top: 20%;
