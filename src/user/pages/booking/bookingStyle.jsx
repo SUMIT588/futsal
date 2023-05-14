@@ -1,3 +1,4 @@
+import noticeBackground from '../../../common/img/noticeBackground.jpg'
 import styled from "styled-components";
 
 export const BookingWrapper = styled.div`
@@ -6,6 +7,10 @@ export const BookingWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 10px;
+   background-image: url(${noticeBackground});
+  background-size: cover;
+  background-position: center;
+  height: 100%;
 
    .tableBox{
     margin-top: 20px;
@@ -17,7 +22,7 @@ export const BookingWrapper = styled.div`
  p{
   font-weight: bold;
   font-family:Bruno Ace Sc;
-  color:var(--primary500);
+  color:var(--grey500);
 
  }
 
@@ -45,15 +50,15 @@ export const BookingWrapper = styled.div`
   }
 
   h3{
-    color: var(--primary500);
+    color: var(--tertiary500);
   }
 
   h4{
-    color : var(--secondary500)
+   color: var(--grey500)
   }
 
   h2{
-    color: var(--primary500);
+    color: var(--tertiary500);
   font-family:Bruno Ace SC;
 
   }
@@ -65,6 +70,7 @@ export const BookingWrapper = styled.div`
     width: 73%;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     color: var(--grey500);
+    background-color: white;
   }
 
   .table {
@@ -104,7 +110,7 @@ export const BookingWrapper = styled.div`
 
   .table caption {
     width: 100%;
-    background-color: var(--primary500);
+    background-color: var(--tertiary500);
     color: white;
     height: 40px;
     text-align: center;

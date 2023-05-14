@@ -33,10 +33,11 @@ export const TableWrapper = styled.div`
       0 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.19);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    background-color: white;
   }
 
   th {
-    color: var(--primary500);
+    color: var(--grey500);
     font-weight: bold;
     border: 1px solid black;
   }
@@ -55,7 +56,7 @@ export const TableWrapper = styled.div`
 
   caption {
     width: 100%;
-    background-color: var(--primary500);
+    background-color: var(--tertiary500);
     color: white;
     height: 40px;
     text-align: center;
