@@ -12,11 +12,14 @@ import AddNoticeWrapper from "./addNoticeStyled";
 import { AiFillDelete } from "react-icons/ai";
 import CardBox from "../../../../components/noticeCardBox/cardBox";
 import { MdOutlineSystemUpdateAlt } from "react-icons/md";
+import { ModalWrapper } from "../../../../components/confirmButton/modalStyle";
 import { useEffect } from "react";
 
 const AddNotice = () => {
   const { noticeData } = useSelector((state) => state.noticeSlice);
   const { updateNotice } = useSelector((state) => state.noticeSlice);
+
+  const [showModal, setShowModal] = useState(false);
 
   const [isEdit, setIsEdit] = useState(false);
   const [title, setTitle] = useState("");
@@ -65,13 +68,8 @@ const AddNotice = () => {
     setNotice(e.target.value);
   };
 
-  const handleDeleteCard = async (e) => {
-    console.log(e.target.value, "delete");
-    const _id = e.target.value;
-    const res = await dispatch(deleteManagerNotice(_id)).unwrap();
-    if (res) {
-      dispatch(getManagerNotice());
-    }
+  const handleDeleteCard =  () => {
+  setShowModal(true);
   };
 
   const handleEditCard = (e) => {
@@ -87,6 +85,25 @@ const AddNotice = () => {
     setTitle(updateNotice?.title);
     setNotice(updateNotice?.message);
   };
+
+  const handleConfirmClose = async (e) =>{
+
+    
+    const _id = e.target.value;
+    const res = await dispatch(deleteManagerNotice(_id)).unwrap();
+    if (res) {
+      dispatch(getManagerNotice());
+    }
+    setShowModal(false);
+  }
+
+  const handleCloseModal = () =>{
+    setShowModal(false);
+    
+  }
+
+
+  
 
   return (
     <AddNoticeWrapper>
@@ -144,6 +161,34 @@ const AddNotice = () => {
                   </button>
                   {/* Add button */}
                 </div>
+
+                {showModal && (
+                  <ModalWrapper>
+                    <div className="modal">
+                      <div className="modal-content">
+                        <h5 className="modal-title">Confirm Delete</h5>
+                        <p className="modal-message">
+                          Are you sure want to delete?
+                        </p>
+                        <div className="modal-buttons">
+                          <button
+                            value={notice._id}
+                            className="btn btn-primary"
+                            onClick={handleConfirmClose}
+                          >
+                            Confirm
+                          </button>
+                          <button
+                            className="btn btn-secondary"
+                            onClick={handleCloseModal}
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </ModalWrapper>
+                )}
               </CardBox>
             ))
           : ""}

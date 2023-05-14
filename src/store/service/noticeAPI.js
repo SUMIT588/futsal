@@ -11,7 +11,7 @@ const addNotice = async (notice) => {
 
 const getUserNotice = async () => {
   try {
-    const { data } = await api.get(`/api/user/getNotice `);
+    const { data } = await api.get(`/api/user/notice `);
     return data;
   } catch (err) {
     throw new Error(err.response.data.error);
