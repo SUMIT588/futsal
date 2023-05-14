@@ -1,3 +1,4 @@
+import noticeBackground from '../../../../common/img/noticeBackground.jpg'
 import styled from "styled-components";
 
 export const AddBookingWrapper = styled.div`
@@ -5,8 +6,16 @@ export const AddBookingWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 30px;
+  background-image: url(${noticeBackground});
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+
+
 
   .card {
+    display:flex;
+    background-color: white;
     margin-top: 40px;
     width: 300px;
     border-radius: 10px;

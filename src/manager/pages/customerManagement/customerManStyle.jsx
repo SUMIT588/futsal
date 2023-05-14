@@ -1,12 +1,16 @@
+import noticeBackground from '../../../common/img/noticeBackground.jpg'
 import styled from 'styled-components'
 
 export const CustomerManagementWrapper = styled.div`
 
 display:flex;
-justify-content:center;
 align-items: center;
 flex-direction:column;
 padding: 20px;
+background-image: url(${noticeBackground});
+  background-size: cover;
+  background-position: center;
+  height: 100%;
 
 p{
   font-family: Bruno Ace SC;
@@ -49,7 +53,7 @@ table {
 
   .table caption {
     width: 100%;
-    background-color: var(--primary500);
+    background-color: var(--tertiary500);
     color: white;
     height: 40px;
     text-align: center;

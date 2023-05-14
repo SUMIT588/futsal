@@ -45,7 +45,7 @@ export const BookingWrapper = styled.div`
   }
 
   h3{
-    color: var(--tertiary500);
+    color: var(--primary500);
   }
 
   h4{

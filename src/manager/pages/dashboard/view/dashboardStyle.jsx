@@ -1,32 +1,29 @@
 import styled from 'styled-components';
 
 export const DashboardWrapper = styled.div`
+  width: 200px;
+  height: 100vh;
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+  position: sticky;
+  left: 0px;
+  top: 0px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
 
-   
-    width: 200px;
-    height: 100vh;
-    background-color: var(--bg-color);
-    overflow-x: hidden;
-    position:sticky;
-    left:0px;
-    top : 0px;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
-    
-  img{
+  img {
     width: 50%;
   }
-  
-  .logo{
+
+  .logo {
     background-size: cover;
     height: 80px;
   }
 
-  .logoContainer{
-    display:flex;
+  .logoContainer {
+    display: flex;
     padding-left: 25px;
     height: 83px;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
-
   }
 
   ul {
@@ -34,12 +31,12 @@ export const DashboardWrapper = styled.div`
     padding: 0;
     margin: 0;
     width: 100%;
-    .active{
+    .active {
       opacity: 0.7;
       background-color: var(--primary500);
       color: white;
     }
-    
+
     li {
       border-top-right-radius: 8px;
       border-bottom-right-radius: 8px;
@@ -48,21 +45,20 @@ export const DashboardWrapper = styled.div`
       color: #333;
       cursor: pointer;
       color: var(--grey500);
-      padding-left : 40px;
+      padding-left: 40px;
 
-      
-      :hover{
-        color: var(--background);
-      } 
+      :hover {
+        background-color: #a2d2de;
+        color: white;
+      }
     }
   }
-  
+
   a {
     color: #333;
     text-decoration: none;
   }
-  
-`
+`;
 
 export const Wrapper = styled.div`
 

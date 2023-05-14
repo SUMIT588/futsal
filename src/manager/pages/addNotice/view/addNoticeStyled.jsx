@@ -1,14 +1,21 @@
+import noticeBackground from '../../../../common/img/noticeBackground.jpg'
 import styled from "styled-components";
 
 const AddNoticeWrapper = styled.div`
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 100%;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
   padding: 20px;
+  background-image: url(${noticeBackground});
+  background-size: cover;
+  background-position: center;
+  height: 100%;
 
-.button{
-  margin-top: 20px;
-}
-  
+  .button {
+    margin-top: 20px;
+  }
+
   h2 {
     font-size: 24px;
     margin-bottom: 10px;
@@ -35,20 +42,27 @@ const AddNoticeWrapper = styled.div`
     margin-bottom: 10px;
   }
 
-  .cardBox{
-    margin-top : 20px;
-    
+h2{
+  font-family: Montserrat;
+  color: var(--tertiary500);
+}
+  
+  .cardBox {
+    margin-top: 20px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
   }
 
   label {
     font-weight: bold;
   }
 
-  .delete{
+  .delete {
     background-color: var(--tertiary500);
   }
 
-  .delete:hover{
+  .delete:hover {
     background-color: red;
   }
 
@@ -56,11 +70,9 @@ const AddNoticeWrapper = styled.div`
     background-color: blue;
   }
 
-
-  .update{
+  .update {
     background-color: var(--primary500);
   }
-  
 
   button {
     padding: 10px 20px;
@@ -70,7 +82,7 @@ const AddNoticeWrapper = styled.div`
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-left:10px;
+    margin-left: 10px;
   }
 
   button:hover {

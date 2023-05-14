@@ -89,6 +89,7 @@ export const AddBooking = () => {
       ) : (
         <p>No user has booked</p>
       )}
+      
     </AddBookingWrapper>
   );
 };
