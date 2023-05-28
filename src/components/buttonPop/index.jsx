@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { addBooking, getBooking } from "../../store/slice/bookingSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 import { ButtonPopWrapper } from "./buttonPopStyle";
-import { addBooking } from "../../store/slice/bookingSlice";
-import { useDispatch } from "react-redux";
 
 export const ButtonPopUp = (props) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const dispatch = useDispatch();
+  const { date } = useSelector((state) => state.calendarSlice);
 
   const openModal = () => {
     const overlay = document.getElementById("overlay");
@@ -26,27 +27,29 @@ export const ButtonPopUp = (props) => {
   };
 
   const handleClick = async () => {
-    
-  };
+    if (props.startTime === 'Invalid Date' || props.endTime === 'Invalid Date') {
+      alert("All field required");
+      console.log(props)
+       }
 
-  console.log(props, 'props')
-
-  const onClickHandle = async () =>{
     try {
       const res = await dispatch(addBooking(props)).unwrap();
-      if (res.error) {
+      setIsSubmitted(false);
+      dispatch(getBooking(date));
+
+      if (!res.error) {
+        alert("Booking Successful");
+      } else if (res.error) {
         alert(res.error);
-        console.log(res,'res')
-      } else {
-        setIsSubmitted(true);
-        openModal();
       }
     } catch (error) {
-      console.error("Error:", error);
-      alert("An error occurred");
+      console.log(error, "error");
     }
-    
-  }
+  };
+
+  const onClickHandle = () => {
+    setIsSubmitted(true);
+  };
 
   useEffect(() => {
     if (isSubmitted) {
@@ -54,25 +57,26 @@ export const ButtonPopUp = (props) => {
     }
   }, [isSubmitted]);
 
-  console.log(isSubmitted, 'submit')
+  console.log(isSubmitted, "submit");
 
   return (
     <ButtonPopWrapper>
       {isSubmitted ? (
         <div>
-          <button onClick={handleClick}>Book</button>
           <div id="overlay"></div>
           <div id="modal">
             <h2>Booking</h2>
-            <p>Click pay button for payment</p>
-            <button>Pay</button>
+            <p>Are you sure want to book</p>
+            <button onClick={handleClick}>Confirm</button>
             <button id="closeModalButton" onClick={closeModal}>
               Close
             </button>
           </div>
         </div>
       ) : (
-        <button id="openModalButton" onClick = {onClickHandle}>Book</button>
+        <button id="openModalButton" onClick={onClickHandle}>
+          Book
+        </button>
       )}
     </ButtonPopWrapper>
   );

@@ -16,8 +16,9 @@ export const Booking = () => {
 
   const dispatch = useDispatch();
 
- 
-
+  useEffect(() => {
+   dispatch(getBooking(date));
+  } ,[])
   const { booking } = useSelector((state) => state.bookingSlice);
 
   const currentDate = new Date();

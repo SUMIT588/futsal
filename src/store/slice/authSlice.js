@@ -34,8 +34,9 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     logout: () => {
-      localStorage.removeItem('auth')
-      return initialState}
+      localStorage.removeItem("auth");
+      return initialState;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -50,9 +51,8 @@ const authSlice = createSlice({
       .addCase(loginUser.rejected, (state, action) => {
         state.isFetching = false;
         state.error = true;
-        console.log(action, 'action');
+        console.log(action, "action");
         alert(action.error.message);
-        // localStorage.removeItem(auth);
       })
 
       // Login Owner
@@ -62,14 +62,13 @@ const authSlice = createSlice({
       .addCase(loginOwner.fulfilled, (state, action) => {
         state.isFetching = false;
         state.user = action.payload;
-
       })
       .addCase(loginOwner.rejected, (state, action) => {
         state.isFetching = false;
         state.error = true;
-         console.log(action, "action");
-         alert(action.error.message);
-      //    localStorage.removeItem(auth);
+        console.log(action, "action");
+        alert(action.error);
+        //    localStorage.removeItem(auth);
       })
 
       // Register Owner

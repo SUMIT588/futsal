@@ -1,7 +1,7 @@
 import KhaltiCheckout from "khalti-checkout-web";
 import { KhaltiWrapper } from "./khaltiStyle";
+import QRCODE from "../../common/img/QRCODE.jpg";
 import config from "./khaltiConfig";
-import futsalcourt from "../../common/img/futsalcourt.jpg";
 
 export const Payment = () => {
   const checkout = new KhaltiCheckout(config);
@@ -22,7 +22,7 @@ export const Payment = () => {
         </div>
       </div>
       <div className="secondContainer">
-        <img src={futsalcourt} alt="futsalcourt" />
+        <img src={QRCODE} alt="futsalCourt" />
       </div>
     </KhaltiWrapper>
   );

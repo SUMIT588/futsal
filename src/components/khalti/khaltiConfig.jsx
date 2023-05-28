@@ -1,36 +1,40 @@
 import axios from "axios";
 import myKey from "./khaltiKey";
 
-let config = {
-  // replace this key with yours
+const config = {
   publicKey: myKey.publicTestKey,
   productIdentity: "123766",
-  productName: "My Ecommerce Store",
+  productName: "Futsal",
+
   productUrl: "http://localhost:5000",
+  
+  initiateVerification: async (payload) => {
+    try {
+      const headers = {
+          Authorization: myKey.secretKey,
+      };
+      const response = await axios.post(
+        "http://localhost:5000/api/verifyPayment",
+        payload, {headers}
+        
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  },
   eventHandler: {
     onSuccess(payload) {
-      // hit merchant api for initiating verfication
-      console.log(payload);
+      console.log(payload, "success");
       let data = {
         token: payload.token,
         amount: payload.amount,
       };
 
-      axios
-        .get(
-          `https://meslaforum.herokuapp.com/khalti/${data.token}/${data.amount}/${myKey.secretKey}`
-        )
-        .then((response) => {
-          console.log(response.data);
-          alert("Thank you for generosity");
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      config.initiateVerification(data);
+      console.log("success baby");
     },
-    // onError handler is optional
     onError(error) {
-      // handle errors
       console.log(error);
     },
     onClose() {

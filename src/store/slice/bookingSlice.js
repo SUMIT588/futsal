@@ -6,7 +6,7 @@ const initialState = {
   booking: [],
   error: null,
   isFetching: null,
-  message: null
+  message: null,
 };
 
 export const getBooking = createAsyncThunk(
@@ -20,6 +20,7 @@ export const addBooking = createAsyncThunk(
 );
 
 const bookingSlice = createSlice({
+  error: null,
   name: "bookings",
   initialState,
   reducers: {},
@@ -52,7 +53,6 @@ const bookingSlice = createSlice({
         state.isFetching = false;
         state.error = action.error.message;
       });
-      
   },
 });
 

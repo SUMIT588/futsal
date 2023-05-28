@@ -1,4 +1,3 @@
-import Button from "../../button/button";
 import { ButtonPopUp } from "../../buttonPop";
 import KhaltiCheckout from "khalti-checkout-web";
 import { TableWrapper } from "../tableStyle";
@@ -48,7 +47,6 @@ export const Table = (props) => {
     date: props.date,
   };
 
-
   return (
     <TableWrapper>
       <table>
@@ -66,7 +64,9 @@ export const Table = (props) => {
           <tr>
             <td>
               <input
+                id="time"
                 type="time"
+                step='3600'
                 value={startTime}
                 onChange={handleStartTimeChange}
               />
@@ -74,6 +74,7 @@ export const Table = (props) => {
             <td>
               <input
                 type="time"
+                step='3600'
                 value={endTime}
                 onChange={handleEndTimeChange}
               />
@@ -83,6 +84,7 @@ export const Table = (props) => {
             </td>
             <td>
               <ButtonPopUp
+              
                 startTime={bookingData.startTime}
                 endTime={bookingData.endTime}
                 date={props.date}

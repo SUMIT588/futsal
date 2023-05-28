@@ -4,10 +4,6 @@ import { loginUser } from "../../../../store/slice/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-// import { changingLoadingStatus } from "../../../../store/slice/loadingSlice";
-// import { useDispatch } from "react-redux";
-// import { useLoginUserMutation } from "../../../../store/service/authentication";
-
 const userLogin = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -19,17 +15,6 @@ const userLogin = () => {
     password: "",
   });
 
-  // useEffect(() => {
-
-  //   if(loginResponse?.isLoading){
-  //     dispatch(changingLoadingStatus(true))
-  //   }
-  //   if(loginResponse?.isError){
-  //     dispatch(changingLoadingStatus(false))
-
-  //   }
-  // }, [loginResponse]);
-
   const onLogin = async(e) => {
     e.preventDefault();
 
@@ -38,9 +23,14 @@ const userLogin = () => {
     } else {
    
     const res =  await dispatch(loginUser(login)).unwrap();
-    if(res){
+    if(!res.error){
       navigate('/home');
     }
+
+    if(res.error){
+      alert(res.error)
+    }
+
   }
 }
 
